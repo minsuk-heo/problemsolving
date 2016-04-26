@@ -4,4 +4,4 @@ Python implementation and unit tests for Algorithm, data struction and various i
 
 ## Authors
 
-* **Minsuk Heo** - [PurpleBooth](http://minsuk-heo.github.io/)
+* **Minsuk Heo** - [Homepage](http://minsuk-heo.github.io/)
