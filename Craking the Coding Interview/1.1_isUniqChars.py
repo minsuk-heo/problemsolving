@@ -22,7 +22,7 @@ def isUniqChars(str):
     return True
 
 
-class LinkedListTest(unittest.TestCase):
+class isUniqCharsTest(unittest.TestCase):
     def test(self):
         input_unique = "abcde"
         input_not_unique = "abcdea"
