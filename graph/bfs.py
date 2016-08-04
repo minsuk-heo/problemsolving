@@ -21,6 +21,6 @@ def bfs(graph, start):
         blacknodes.append(current)
     return blacknodes
 
-print vertices
+print(vertices)
 print(bfs(graphs, 0))
 

@@ -21,7 +21,7 @@ def dfs(graph, start):
         blacknodes.append(current)
     return blacknodes
 
-print vertices
+print(vertices)
 print(dfs(graphs, 0))
 
     
