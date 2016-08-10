@@ -1,3 +1,6 @@
+"""
+stack has min function O(1)
+"""
 import unittest
 
 class stack():
