@@ -2,7 +2,7 @@
 set of stacks
 push and pop
 when stack is full, add one more stack and push to added stack
-when stack is empty, remove empty stack and use previous stack
+when stack is empty, remove empty stack and use previous stack.
 .
 """
 import unittest
