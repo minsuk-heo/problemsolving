@@ -33,6 +33,6 @@ def mergeSort(alist):
             k=k+1
     print("Merging ",alist)
 
-alist = [54,26,93]
+alist = [6,2,4,1,3,7,5,8]
 mergeSort(alist)
 print(alist)
