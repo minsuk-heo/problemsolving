@@ -10,12 +10,19 @@ Stack
 class Stack:
     def __init__(self):
         self.items = []
+        self.max = 5
 
     def push(self, item):
-        self.items.append(item)
+        if len(self.items) < 5:
+            self.items.append(item)
+        else:
+            print("abort push in order to prevent stack overflow")
 
     def pop(self):
-        self.items.pop()
+        if len(self.items) > 0:
+            self.items.pop()
+        else:
+            print("stack is empty, abort pop to prevent stack underflow")
 
     def print_stack(self):
         print(self.items)
@@ -44,3 +51,13 @@ class StackTest(unittest.TestCase):
         self.assertEquals(st.peek(),3)
         self.assertFalse(st.is_empty())
         self.assertEqual(st.size(), 2)
+        st.pop()
+        st.pop()
+        st.pop()
+        st.push(3)
+        st.push(3)
+        st.push(3)
+        st.push(3)
+        st.push(3)
+        st.push(3)
+
