@@ -33,6 +33,27 @@ class BinaryTree:
         self.inorder_list = []
         self.postorder_list = []
 
+    def search(self, item):
+        if self.head.val is None:
+            return False
+        else:
+            return self.__search_node(self.head, item)
+
+    def __search_node(self, cur, item):
+        if cur.val == item:
+            return True
+        else:
+            if cur.val >= item:
+                if cur.left is not None:
+                    return self.__search_node(cur.left, item)
+                else:
+                    return False
+            else:
+                if cur.right is not None:
+                    return self.__search_node(cur.right, item)
+                else:
+                    return False
+
     def add(self, item):
         if self.head.val is None:
             self.head.val = item
@@ -261,4 +282,22 @@ class binary_tree_test(unittest.TestCase):
         bt_left_remove_test_3.remove(50)
         bt_left_remove_test_3.preorder_traverse()
         self.assertEqual(bt_left_remove_test_3.preorder_list, [60,52,40,55,70])
+
+        print("BST search test")
+        bt_search_test = BinaryTree()
+        bt_search_test.add(60)
+        bt_search_test.add(50)
+        bt_search_test.add(70)
+        bt_search_test.add(40)
+        bt_search_test.add(55)
+        bt_search_test.add(52)
+        self.assertTrue(bt_search_test.search(60))
+        self.assertTrue(bt_search_test.search(50))
+        self.assertTrue(bt_search_test.search(70))
+        self.assertTrue(bt_search_test.search(40))
+        self.assertTrue(bt_search_test.search(55))
+        self.assertTrue(bt_search_test.search(52))
+        self.assertFalse(bt_search_test.search(61))
+        self.assertFalse(bt_search_test.search(81))
+
 
