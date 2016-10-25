@@ -1,27 +1,26 @@
 __author__ = 'Minsuk Heo'
 
-vertices = ['A', 'B', 'C', 'D', 'E', 'F']
-links = [(0,1), (1,2), (1,3), (3,4), (4,5)]
-graphs = (vertices, links)
+vertexList = ['0', '1', '2', '3', '4', '5', '6']
+edgeList = [(0,1), (0,2), (1,0) , (1,3) , (2,0) , (2,4) , (2,5) , (3,1), (4,2) , (4,6), (5,2), (6,4)]
+graphs = (vertexList, edgeList)
 
 def dfs(graph, start):
-    vertices, links = graph
-    blacknodes = []
-    graynodes = [start]
-    neighbors = [[] for vertex in vertices]
+    vertexList, edgeList = graph
+    visitedVertex = []
+    stack = [start]
+    adjacencyList = [[] for vertex in vertexList]
 
-    for link in links:
-        neighbors[link[0]].append(link[1])
+    for edge in edgeList:
+        adjacencyList[edge[0]].append(edge[1])
 
-    while graynodes:
-        current = graynodes.pop()
-        for neighbor in neighbors[current]:
-            if not neighbor in blacknodes + graynodes:
-                graynodes.append(neighbor)
-        blacknodes.append(current)
-    return blacknodes
+    while stack:
+        current = stack.pop()
+        for neighbor in adjacencyList[current]:
+            if not neighbor in visitedVertex:
+                stack.append(neighbor)
+        visitedVertex.append(current)
+    return visitedVertex
 
-print(vertices)
 print(dfs(graphs, 0))
 
     
