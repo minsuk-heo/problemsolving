@@ -1,26 +1,27 @@
 __author__ = 'Minsuk Heo'
 
-vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-links = [(0,1), (1,2), (1,3), (3,4), (4,5), (1,6)]
-graphs = (vertices, links)
+vertexList = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+edgeList = [(0,1), (1,2), (1,3), (3,4), (4,5), (1,6)]
+graphs = (vertexList, edgeList)
 
 def bfs(graph, start):
-    vertices, links = graph
-    blacknodes = []
-    graynodes = [start]
-    neighbors = [[] for vertex in vertices]
+    vertexList, edgeList = graph
+    visitedList = []
+    queue = [start]
+    adjacencyList = [[] for vertex in vertexList]
 
-    for link in links:
-        neighbors[link[0]].append(link[1])
+    # fill adjacencyList from graph
+    for edge in edgeList:
+        adjacencyList[edge[0]].append(edge[1])
 
-    while graynodes:
-        current = graynodes.pop()
-        for neighbor in neighbors[current]:
-            if not neighbor in blacknodes + graynodes:
-                graynodes.insert(0,neighbor)
-        blacknodes.append(current)
-    return blacknodes
+    # bfs
+    while queue:
+        current = queue.pop()
+        for neighbor in adjacencyList[current]:
+            if not neighbor in visitedList:
+                queue.insert(0,neighbor)
+        visitedList.append(current)
+    return visitedList
 
-print(vertices)
 print(bfs(graphs, 0))
 
