@@ -14,7 +14,7 @@ def compressword(input):
             buffer = ch
         else:
             if buffer == ch:
-                cnt = cnt + 1
+                cnt += 1
             else:
                 output += str(cnt)
                 cnt = 1
