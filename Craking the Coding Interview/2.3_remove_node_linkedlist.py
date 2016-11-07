@@ -37,6 +37,7 @@ class LinkedList:
             if cur.next.val == item:
                 nextnode = cur.next.next
                 cur.next = nextnode
+                cur.next.next = None
                 break
 
     def printlist(self):
