@@ -11,7 +11,8 @@ class stack():
 
     def push(self, item):
         self.items.append(item)
-        self.mins.append(self.min)
+        if self.min is not None:
+            self.mins.append(self.min)
         if self.min is None or self.min > item:
             self.min = item
 
