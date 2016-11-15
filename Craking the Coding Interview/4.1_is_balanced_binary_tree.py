@@ -69,10 +69,30 @@ class BinaryTree:
         return max(self.getHeight(node.left), self.getHeight(node.right))+1
 
     def is_balanced(self):
-        if self.head.val is not None:
-            return self.traverse(self.head)
+        if self.checkHeight(self.head) == -1:
+            return False
         else:
             return True
+
+    def checkHeight(self, node):
+        if node is None:
+            return 0
+
+        # if left subtree is balanced
+        leftHeight = self.checkHeight(node.left)
+        if leftHeight == -1:
+            return -1
+        # if right subtree is balanced
+        rightHeight = self.checkHeight(node.right)
+        if rightHeight == -1:
+            return -1
+
+        # if current node is balanced
+        heightDiff = leftHeight - rightHeight
+        if abs(heightDiff) > 1:
+            return -1
+        else:
+            return max(leftHeight, rightHeight) + 1
 
 
 class binary_tree_test(unittest.TestCase):
