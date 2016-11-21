@@ -11,16 +11,16 @@ def printBinary(num):
     print(b_num[2:])    #don't display b0
 
 def getMask(i,j,max_int):
-    # 1110000000
+    # 11100000000
     left = max_int << (j+1)
-    # 0000000011
+    # 00000000011
     right = (1 << i) - 1
-    # 1110000011
+    # 11100000011
     return left | right
 
 def UpdateBits(m,n,i,j):
     max_int = 2 ** 32 - 1
-    # mask = 1110000011
+    # mask = 11100000011
     mask = getMask(i,j,max_int)
     # n_cleared = 10000000000
     n_cleared = n & mask
