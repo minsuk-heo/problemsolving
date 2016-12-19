@@ -23,9 +23,8 @@ public class lengthOfLongestSubstring {
         Map<Character, Integer> indexHash = new HashMap<Character, Integer>();
         int lengthOfLongestSubstring = 0;
         int substring_ptr = -1;
-        int runner_idx = 0;
 
-        for(runner_idx = 0; runner_idx < s.length(); runner_idx++) {
+        for(int runner_idx = 0; runner_idx < s.length(); runner_idx++) {
             char c = s.charAt(runner_idx);
             if(indexHash.containsKey(c)) {
                 int duplicate_ptr = indexHash.get(c);
