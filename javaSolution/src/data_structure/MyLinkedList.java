@@ -36,7 +36,20 @@ public class MyLinkedList {
             }
             System.out.println(n+" is not in linkedlist");
         }
+    }
 
+    public void reverse(){
+        Node cur = head;
+        Node prev = null;
+        Node next = null;
+
+        while(cur != null){
+            next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        head = prev;
     }
 
     public void print(){
@@ -53,7 +66,9 @@ public class MyLinkedList {
         ml.add(1);
         ml.add(2);
         ml.add(3);
-        ml.remove(2);
+        ml.add(4);
+        ml.print();
+        ml.reverse();
         ml.print();
     }
 }
