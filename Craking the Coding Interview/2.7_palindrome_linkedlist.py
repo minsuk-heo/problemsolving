@@ -1,9 +1,9 @@
 __author__ = 'Minsuk Heo'
 """
-Linked List
-input: 7-1-6, 5-9-2 # 617 + 295
-output: 912
-add two linked list and return int value
+Palindrome
+a word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
+1-3-5-3-1 is palindrome
+5-9-2 is not palindrome
 """
 import unittest
 
