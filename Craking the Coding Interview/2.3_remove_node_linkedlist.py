@@ -37,8 +37,8 @@ class LinkedList:
             if cur.next.val == item:
                 nextnode = cur.next.next
                 cur.next = nextnode
-                cur.next.next = None
                 break
+            cur = cur.next
 
     def printlist(self):
         cur = self.head
@@ -52,9 +52,10 @@ class LinkedList:
 class LinkedListTest(unittest.TestCase):
     def test(self):
         ll = LinkedList(9)
+        ll.add(5)
         ll.add(8)
         ll.add(7)
+        ll.add(6)
         ll.remove(8)
-
-        self.assertEqual("[9, 7]", ll.printlist())
+        self.assertEqual("[9, 5, 7, 6]", ll.printlist())
 
