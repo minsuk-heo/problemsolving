@@ -81,13 +81,11 @@ class BinaryTree:
                 self.head = None
             # 2) Node to be removed has one child.
             elif self.head.left is None and self.head.right is not None:
-                self.head.val = self.head.right.val
-                self.head.right = None
-            # 2) Node to be removed has one child.
+                self.head = self.head.right
+            # 3) Node to be removed has one child.
             elif self.head.left is not None and self.head.right is None:
-                self.head.val = self.head.left.val
-                self.head.left = None
-            # 3) Node to be removed has two children.
+                self.head = self.head.left
+            # 4) Node to be removed has two children.
             else:
                 self.head.val = self.__most_left_val_from_right_node(self.head.right).val
                 self.__removeitem(self.head, self.head.right, self.head.val)
@@ -113,13 +111,13 @@ class BinaryTree:
                     parent.left = cur.right
                 else:
                     parent.right = cur.right
-            # 2) Node to be removed has one child.
+            # 3) Node to be removed has one child.
             elif cur.left is not None and cur.right is None:
                 if parent.left == cur:
                     parent.left = cur.left
                 else:
                     parent.right = cur.left
-            # 3) Node to be removed has two children.
+            # 4) Node to be removed has two children.
             else:
                 cur.val = self.__most_left_val_from_right_node(cur.right).val
                 self.__removeitem(cur, cur.right, cur.val)
@@ -212,6 +210,22 @@ class binary_tree_test(unittest.TestCase):
         bt_root_remove_test.remove(60)
         bt_root_remove_test.preorder_traverse()
         self.assertEqual(bt_root_remove_test.preorder_list, [70,50])
+
+        print ("bt root remove2")
+        bt_root_remove_test = BinaryTree()
+        bt_root_remove_test.add(60)
+        bt_root_remove_test.add(50)
+        bt_root_remove_test.remove(60)
+        bt_root_remove_test.preorder_traverse()
+        self.assertEqual(bt_root_remove_test.preorder_list, [50])
+
+        print ("bt root remove3")
+        bt_root_remove_test = BinaryTree()
+        bt_root_remove_test.add(60)
+        bt_root_remove_test.add(70)
+        bt_root_remove_test.remove(60)
+        bt_root_remove_test.preorder_traverse()
+        self.assertEqual(bt_root_remove_test.preorder_list, [70])
 
         print ("bt left remove 1")
         bt_left_remove_test_1 = BinaryTree()
