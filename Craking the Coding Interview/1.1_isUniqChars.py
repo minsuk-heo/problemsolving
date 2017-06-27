@@ -1,6 +1,6 @@
 """
 return true if the string doesn't have duplicate characters
-return false if the string has duplicate character.  updated by other developer
+return false if the string has duplicate character.
 """
 import unittest
 
