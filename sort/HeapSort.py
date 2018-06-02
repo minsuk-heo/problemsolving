@@ -58,7 +58,7 @@ def heapsort(a):
             siftdown(a, largest, size)
 
     def heapify(a, size):
-        p = (size/2)-1
+        p = (size//2)-1
         while p>=0:
             siftdown(a, p, size)
             p -= 1
